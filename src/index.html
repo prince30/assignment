@@ -1,0 +1,155 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Adcash Assignment</title>
+    <meta name="description" content="Adcash assignment for front-end developer role">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+
+
+<div class="container py-5 h-100">
+
+    <div class="columns">
+        <div class="col-sm-10 mx-auto col-md-6">
+            <div class='card px-4 py-3 shadow'>
+
+                <div class="" data-bind="if: duplicateTags().length > 0">
+
+                    <div class="alert alert-danger">
+
+                        <h6 class="text text-danger" data-bind="text: duplicateTags "></h6>
+
+                    </div>
+
+                </div>
+
+                <form>
+
+                    <div class="form-group">
+                        <small class="form-text text-muted mb-1">Enter Tags here using commas, semicolon, line-break as delimeters </small>
+                        <textarea class="form-control" data-bind='value: itemToAdd, valueUpdate: "afterkeydown"' id="tagInput" rows="4"></textarea>
+                    </div>
+
+                    <div class="row">
+
+                        <button type="submit" data-bind="enable: itemToAdd().length > 0, click: addTag" class="hover-shadow px-5 mx-auto btn add-btn">Add Tags</button>
+
+                    </div>
+
+
+                </form>
+
+                <div class="jumbotron jumbotron-fluid mt-4 mb-1 py-3 ">
+
+                    <div data-bind="if: tags().length <=0" class="px-2">
+                        <h5 class="text-center" >Your entered tags will appear here</h5>
+                    </div>
+                    <ul class="tags my-0 px-2" data-bind='foreach: tags'>
+
+                        <li class="mr-1" >
+                            <div class="btn-group rounded-lg" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-sm" data-bind="text: $data, css:{ 'btn-primary' : $data < 0,'btn-danger':$data >= 0}"></button>
+                                <button type="button" data-bind="click: $root.removeTag , css:{ 'btn-primary' : $data < 0,'btn-danger':$data >= 0}" class="btn btn-sm delete-tag">X</button>
+                            </div>
+                        </li>
+
+
+                    </ul>
+
+                </div>
+
+                <div class="mt-1" data-bind="if: tags().length > 0">
+                    <button class="btn add-btn px-4" data-bind="click : openDialog">Edit Tags</button>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<!--Edit Tags Modal -->
+<div data-bind="if: isDialogVisible">
+
+    <div class="modal show modal-show fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="Edit Tags">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content shadow">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Tags</h5>
+                    <button type="button" class="close" aria-label="Close" data-bind="click: closeDialog">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <form>
+
+                        <div class="form-group">
+                            <small class="form-text text-muted mb-1">Enter Tags here using commas, semicolon, line-break as delimeters </small>
+                            <textarea class="form-control" data-bind='value: itemToEdit, valueUpdate: "afterkeydown"' rows="4"></textarea>
+                        </div>
+
+
+                    </form>
+
+
+                </div>
+                <div class="">
+
+                    <button type="submit" data-bind="enable:itemToEdit().length > 0, click: editTag" class="modal-footer btn btn-primary btn-block save-btn">Save Tags</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="js/vendor/modernizr-3.6.0.min.js"></script>
+
+<!--<script type='text/javascript' src='http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.4.2.js'></script>-->
+<script type='text/javascript' src='js/vendor/knockout-latest.js'></script>
+
+<!--<script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>-->
+
+<script src="js/main.js"></script>
+
+</body>
+
+</html>

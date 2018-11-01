@@ -1,0 +1,44 @@
+html, body {
+  background: #fbfbfb;
+  height: 100%; }
+
+.shadow {
+  box-shadow: 0px 2px 46px -3px rgba(0, 0, 0, 0.18); }
+
+.hover-shadow:hover {
+  box-shadow: 0px 2px 46px -3px rgba(0, 0, 0, 0.18); }
+
+.add-btn {
+  font-weight: 600;
+  font-size: 1rem;
+  background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+  border-radius: 20px;
+  color: white;
+  border: 1px solid #6a11cb;
+  outline: transparent; }
+
+.save-btn {
+  font-weight: 600;
+  font-size: 1.4rem;
+  background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+  color: white;
+  justify-content: center !important;
+  border: 1px solid #6a11cb;
+  outline: transparent; }
+
+.tags {
+  list-style: none; }
+
+.tags li {
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  display: inline-flex; }
+
+.delete-tag {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem; }
+
+.modal-show {
+  background: rgba(0, 0, 0, 0.75);
+  display: block;
+  opacity: 1; }
